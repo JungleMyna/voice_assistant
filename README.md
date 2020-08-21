@@ -5,16 +5,17 @@
 ## 运行环境
 
 - 树莓派全系列
-- Python3
+- Python2.7
 
 ## 依赖安装
 ```bash
-sudo apt-get install python-pyaudio python3-audio python3-pip python-pip sox
+sudo apt-get install python-pyaudio python3-pyaudio python3-pip python-pip sox
 sudo apt-get install git gcc libatlas-base-dev swig3.0 libpcre3 libpcre3-dev
 
-pip install mpg123
-pip install baidu-aip
-pip install pycrypto
+# 使用python2.7安装依赖
+python -m pip install mpg123
+python -m pip install baidu-aip
+python -m pip install pycrypto
 ```
 
 ## 配置

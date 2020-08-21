@@ -1,4 +1,5 @@
 # -*- coding:UTF-8 -*-
+import requests,json
 from recognition import Recognition
 from nlu import Nlu
 from speaker import Speaker
@@ -7,7 +8,8 @@ from music_player import Music_Player
 
 # 功能调度模块
 class Robot():
-    def __init__(self):
+    def __init__(self, config):
+        self.config = config
         self.recognizer = Recognition() # 语音识别
         self.nlu = Nlu() # 语义识别
         self.speaker = Speaker() # 语音合成
@@ -21,10 +23,21 @@ class Robot():
     def get_music_player(self):
         return self.music_player
     
+    # 将文字发给HomeAssistant
+    def conversation_process(self):
+        cfg = self.config
+        api_url = cfg['url'].strip('/') + '/api/services/conversation/process'
+        requests.post(api_url, {'text': speech}, headers={
+            "Content-Type": "application/json",
+            "Authorization": "Bearer " + cfg['token']
+        })
+
     # 识别语音并进行对应的处理
     def process(self, fname):
         speech = self.recognizer.recognize(fname) # 语音识别(语音转文字)
         if speech is not None:
+            self.conversation_process(speech) # 发送到HA
+
             skill, response = self.nlu.query(speech) # 语义识别(情感倾向)
             if skill == 'weather':
                 print("命中技能天气")
