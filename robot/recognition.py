@@ -3,10 +3,10 @@ from aip import AipSpeech
 
 # 语音识别
 class Recognition():
-    def __init__(self):
-        APP_ID = '16150576'
-        API_KEY = 'qYtgrI3PxOMBrVywsGtBZfR4'
-        SECRET_KEY = 'fT2RW8WNVtTTlODjBbDk8T10FUPcjvRl'
+    def __init__(self, config):
+        APP_ID = config['app_id']
+        API_KEY = config['api_key']
+        SECRET_KEY = config['secret_key']
         self.client = AipSpeech(APP_ID, API_KEY, SECRET_KEY)
 
     def get_file_content(self, filePath):

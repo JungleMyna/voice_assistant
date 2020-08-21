@@ -4,9 +4,9 @@ import uuid
 
 # 自然语言处理(语义识别)
 class Nlu():
-    def __init__(self):
-        self.API_KEY = 'qYtgrI3PxOMBrVywsGtBZfR4'
-        self.SECRET_KEY = 'fT2RW8WNVtTTlODjBbDk8T10FUPcjvRl'    
+    def __init__(self, config):
+        self.API_KEY = config['api_key']
+        self.SECRET_KEY = config['secret_key']
         self.access_token = self.get_access_token()
 
     def get_access_token(self):

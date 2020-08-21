@@ -10,9 +10,9 @@ from music_player import Music_Player
 class Robot():
     def __init__(self, config):
         self.config = config
-        self.recognizer = Recognition() # 语音识别
-        self.nlu = Nlu() # 语义识别
-        self.speaker = Speaker() # 语音合成
+        self.recognizer = Recognition(config) # 语音识别
+        self.nlu = Nlu(config) # 语义识别
+        self.speaker = Speaker(config) # 语音合成
         self.music_player = Music_Player() # 音乐播放器
         self.weather = Weather(self.speaker) # 查询天气功能
         self.chat = Chat(self.speaker) # 闲聊功能

@@ -7,10 +7,10 @@ import time
 
 # 语音合成
 class Speaker():
-    def __init__(self):
+    def __init__(self, config):
         self.player = Player()
-        self.API_KEY = 'qYtgrI3PxOMBrVywsGtBZfR4'
-        self.SECRET_KEY = 'fT2RW8WNVtTTlODjBbDk8T10FUPcjvRl'    
+        self.API_KEY = config['api_key']
+        self.SECRET_KEY = config['secret_key']
 
     def get_access_token(self):
         url = "https://aip.baidubce.com/oauth/2.0/token"
