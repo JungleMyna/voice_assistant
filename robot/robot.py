@@ -27,10 +27,11 @@ class Robot():
     def conversation_process(self, speech):
         cfg = self.config
         api_url = cfg['url'].strip('/') + '/api/services/conversation/process'
-        requests.post(api_url, {'text': speech}, headers={
+        result = requests.post(api_url, {'text': speech}, headers={
             "Content-Type": "application/json",
             "Authorization": "Bearer " + cfg['token']
         })
+        print(result.json())
 
     # 识别语音并进行对应的处理
     def process(self, fname):
@@ -38,7 +39,7 @@ class Robot():
         if speech is not None:
             print('识别结果：{0}'.format(speech))
             self.conversation_process(speech) # 发送到HA
-
+            '''
             skill, response = self.nlu.query(speech) # 语义识别(情感倾向)
             if skill == 'weather':
                 print("命中技能天气")
@@ -55,3 +56,4 @@ class Robot():
             elif skill == 'music':
                 print("命中技能播放音乐")
                 self.music.process(response)
+            '''
