@@ -36,6 +36,7 @@ class Nlu():
             'request': request
         }
         result = requests.post(url=url, json=data, headers=headers).json()
+        print('语义识别：', result)
         import json
         with open("temp.json",'w') as f:#,encoding='utf-8'
             json.dump(result, f)#, ensure_ascii=False

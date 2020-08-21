@@ -40,8 +40,6 @@ class Robot():
             self.conversation_process(speech) # 发送到HA
 
             skill, response = self.nlu.query(speech) # 语义识别(情感倾向)
-            print(skill)
-            print(response)
             if skill == 'weather':
                 print("命中技能天气")
                 self.weather.process(response)
