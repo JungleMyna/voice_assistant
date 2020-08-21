@@ -9,8 +9,8 @@
 
 ## 依赖安装
 ```bash
-sudo apt-get install python-pyaudio python3-audio python3-pip python-pip
-sudo apt-get install git sox gcc libatlas-base-dev swig3.0 libpcre3 libpcre3-dev
+sudo apt-get install python-pyaudio python3-audio python3-pip python-pip sox
+sudo apt-get install git gcc libatlas-base-dev swig3.0 libpcre3 libpcre3-dev
 
 pip install mpg123
 pip install baidu-aip
@@ -21,9 +21,13 @@ pip install pycrypto
 
 配置HomeAssistant的token长令牌
 ```yaml
-
+ha_token: HA长令牌
 ```
 
 ## 详细文档请查看源项目
 
 https://github.com/x2018/Voice_assistant_Xiao_Er
+
+## 唤醒词识别文档
+
+http://docs.kitt.ai/snowboy/
