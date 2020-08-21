@@ -14,8 +14,8 @@ class Recognition():
             return fp.read()
 
     def recognize(self, fname):
-        result = self.client.asr(self.get_file_content(fname), 'wav', 16000, {
-            'dev_pid': 1536,
+        result = self.client.asr(self.get_file_content(fname), 'wav', 8000, {
+            'dev_pid': 1537,
         })
         print(result)
         if 'result' in result:
