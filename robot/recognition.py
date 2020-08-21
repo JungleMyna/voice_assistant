@@ -17,6 +17,7 @@ class Recognition():
         result = self.client.asr(self.get_file_content(fname), 'wav', 16000, {
             'dev_pid': 1536,
         })
+        print(result)
         if 'result' in result:
             return result['result'][0]
         else:
