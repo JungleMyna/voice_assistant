@@ -24,7 +24,7 @@ class Robot():
         return self.music_player
     
     # 将文字发给HomeAssistant
-    def conversation_process(self):
+    def conversation_process(self, speech):
         cfg = self.config
         api_url = cfg['url'].strip('/') + '/api/services/conversation/process'
         requests.post(api_url, {'text': speech}, headers={
@@ -40,6 +40,8 @@ class Robot():
             self.conversation_process(speech) # 发送到HA
 
             skill, response = self.nlu.query(speech) # 语义识别(情感倾向)
+            print(skill)
+            print(response)
             if skill == 'weather':
                 print("命中技能天气")
                 self.weather.process(response)
