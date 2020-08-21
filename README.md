@@ -16,6 +16,7 @@ sudo apt-get install git gcc libatlas-base-dev swig3.0 libpcre3 libpcre3-dev
 python -m pip install mpg123
 python -m pip install baidu-aip
 python -m pip install pycrypto
+python -m pip install pyyaml
 ```
 
 ## 配置
