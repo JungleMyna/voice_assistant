@@ -27,7 +27,7 @@ class Robot():
     def conversation_process(self, speech):
         cfg = self.config
         api_url = cfg['url'].strip('/') + '/api/services/conversation/process'
-        result = requests.post(api_url, {'text': speech}, headers={
+        result = requests.post(api_url, json={'text': speech}, headers={
             "Content-Type": "application/json",
             "Authorization": "Bearer " + cfg['token']
         })
