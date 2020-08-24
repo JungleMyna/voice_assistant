@@ -40,7 +40,6 @@ class Player():
         audio.terminate()
 
     def play_music(self, fname):
-        print(fname)
         subprocess.Popen(['mpg123', '-q', fname]).wait()
         
 # Player().play_music("http://music.163.com/song/media/outer/url?id=108485.mp3")

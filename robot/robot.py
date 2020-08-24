@@ -31,7 +31,7 @@ class Robot():
             "Content-Type": "application/json",
             "Authorization": "Bearer " + cfg['token']
         })
-        print(result.json())
+        print(result)
 
     # 识别语音并进行对应的处理
     def process(self, fname):
