@@ -19,6 +19,31 @@ python -m pip install pycrypto
 python -m pip install pyyaml
 ```
 
+## 使用USB声卡时需要配置
+```bash
+# 检查播放设备
+aplay -l
+# 检查录音设备
+arecord -l
+
+# 设置默认音频设备
+nano ~/.asoundrc
+```
+文件：`~/.asoundrc`
+```
+pcm.!default {
+  type asym
+   playback.pcm {
+     type plug
+     slave.pcm "hw:0,0"
+   }
+   capture.pcm {
+     type plug
+     slave.pcm "hw:1,0"
+   }
+}
+```
+
 ## 配置
 
 配置HomeAssistant的token长令牌
