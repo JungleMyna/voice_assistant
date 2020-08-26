@@ -38,13 +38,6 @@ secret_key: 百度语音识别
 pulseaudio --start
 ```
 
-## 遇到的问题
-
-```bash
-# 查看日志
-sudo grep "voice_assistant" /var/log/syslog
-```
-
 ## 详细文档请查看源项目
 
 https://github.com/x2018/Voice_assistant_Xiao_Er
