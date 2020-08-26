@@ -7,12 +7,12 @@ Description=voice_assistant
 After=network.target
 
 [Service]
-ExecStart=python main.py
-WorkingDirectory=~/git/voice_assistant
+ExecStart=/usr/bin/python main.py
+WorkingDirectory=/home/pi/git/voice_assistant
 StandardOutput=inherit
 StandardError=inherit
 Restart=always
-User=root
+User=pi
 
 [Install]
 WantedBy=multi-user.target
@@ -23,3 +23,6 @@ sudo systemctl start voice_assistant
 
 # 查看状态
 sudo systemctl status voice_assistant.service
+
+# 查看日志
+sudo grep "voice_assistant" /var/log/syslog
