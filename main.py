@@ -45,15 +45,14 @@ class SmartSpeaker():
         return self.interrupted
 
     def detected_callback(self):
-        self.music_player.pause() # 检测到人声时音乐暂停
+        # self.music_player.pause() # 检测到人声时音乐暂停
         self.player.play_ding() # 触发 叮
 
     def speeched_callback(self, fname):
-        print(fname)
         self.player.play_dong() # 检测时间到后触发 咚
         self.robot.process(fname) # 将收到的语音传给应用模块执行相应的操作
-        sleep(1) # 等待片刻
-        self.music_player.cont() # 继续播放音乐
+        # sleep(1) # 等待片刻
+        # self.music_player.cont() # 继续播放音乐
 
     # 启动机器人
     def run(self):
