@@ -25,13 +25,16 @@ class Robot():
     
     # 将文字发给HomeAssistant
     def conversation_process(self, speech):
-        cfg = self.config
-        api_url = cfg['url'].strip('/') + '/api/services/conversation/process'
-        result = requests.post(api_url, json={'text': speech, 'source': 'baidu'}, headers={
-            "Content-Type": "application/json",
-            "Authorization": "Bearer " + cfg['token']
-        })
-        print(result)
+        try:
+            cfg = self.config
+            api_url = cfg['url'].strip('/') + '/api/services/conversation/process'
+            result = requests.post(api_url, json={'text': speech, 'source': 'baidu'}, headers={
+                "Content-Type": "application/json",
+                "Authorization": "Bearer " + cfg['token']
+            }, timeout=5)
+            print(result)
+        except Exception as ex:
+            print('请求超时：', ex)
 
     # 识别语音并进行对应的处理
     def process(self, fname):
