@@ -1,3 +1,6 @@
 name: 唤醒词名称
 url: http://192.168.1.113:8123
 token: 这里放HA的token
+app_id: 百度语音识别
+api_key: 百度语音识别
+secret_key: 百度语音识别
