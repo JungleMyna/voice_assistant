@@ -31,10 +31,11 @@ class Robot():
             result = requests.post(api_url, json={'text': speech, 'source': 'baidu'}, headers={
                 "Content-Type": "application/json",
                 "Authorization": "Bearer " + cfg['token']
-            }, timeout=5)
+            }, timeout=3)
             print(result)
         except Exception as ex:
-            print('请求超时：', ex)
+            print('请求超时：')
+            print(ex)
 
     # 识别语音并进行对应的处理
     def process(self, fname):
