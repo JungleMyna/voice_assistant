@@ -42,6 +42,9 @@ class Robot():
         speech = self.recognizer.recognize(fname) # 语音识别(语音转文字)
         if speech is not None:
             print('识别结果：{0}'.format(speech))
+            if speech == '':
+                self.speaker.speak("我没有听清楚，请再讲一遍")
+                return
             self.conversation_process(speech) # 发送到HA
             '''
             skill, response = self.nlu.query(speech) # 语义识别(情感倾向)
