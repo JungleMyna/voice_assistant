@@ -10,7 +10,8 @@
 ## 依赖安装
 ```bash
 sudo apt-get install python-pyaudio python3-pyaudio python3-pip python-pip sox -y
-sudo apt-get install git gcc libatlas-base-dev swig3.0 libpcre3 libpcre3-dev pulseaudio -y
+sudo apt-get install git gcc libatlas-base-dev swig3.0 libpcre3 libpcre3-dev -y
+sudo apt-get install mpg123 pulseaudio -y
 # 使用python2.7安装依赖
 python -m pip install pyaudio
 python -m pip install mpg123
