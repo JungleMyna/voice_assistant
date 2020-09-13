@@ -16,7 +16,7 @@ class Robot():
     def hass_api(self, api_url, data):
         try:
             cfg = self.config
-            api_url = cfg['url'].strip('/') + '/api/services/conversation/process'
+            api_url = cfg['url'].strip('/') + '/api/' + api_url
             result = requests.post(api_url, json=data, headers={
                 "Content-Type": "application/json",
                 "Authorization": "Bearer " + cfg['token']
