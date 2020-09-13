@@ -1,4 +1,7 @@
-import os
+import os, re
 
 rs = os.popen("./iat_sample")
-print(rs.read())
+text = rs.read()
+pattern = re.compile(r"=============================================================(.+)=============================================================")
+match_text = pattern.findall(text)
+print(match_text)
