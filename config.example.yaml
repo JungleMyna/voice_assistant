@@ -4,3 +4,5 @@ token: 这里放HA的token
 app_id: 百度语音识别
 api_key: 百度语音识别
 secret_key: 百度语音识别
+ding: mpg123 -a hw:0,0 ~/.homeassistant/tts/tts-be4dd7c1955e96de9dfff7d530ac63bf.mp3
+dong: mpg123 -a hw:0,0 ~/.homeassistant/tts/tts-be4dd7c1955e96de9dfff7d530ac63bf.mp3

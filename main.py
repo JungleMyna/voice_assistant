@@ -36,7 +36,7 @@ class SmartSpeaker():
         print('Listening... Press Ctrl+Z to exit')
         self.robot = Robot(config) # 创建应用模块
         self.music_player = self.robot.get_music_player() # 创建音乐播放模块
-        self.player = Player() # 触发响应词叮咚播放
+        self.player = Player(config) # 触发响应词叮咚播放
         
     def signal_handler(self, signal, frame):
         self.interrupted = True
