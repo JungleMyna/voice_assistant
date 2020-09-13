@@ -14,6 +14,7 @@ class Recognition():
             return fp.read()
 
     def recognize(self, fname):
+        # 百度语音识别
         result = self.client.asr(self.get_file_content(fname), 'wav', 16000, {
             'dev_pid': 1537,
         })
