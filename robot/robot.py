@@ -15,6 +15,7 @@ class Robot():
     # HA接口
     def hass_api(self, api_url, data):
         try:
+            print(api_url)
             cfg = self.config
             api_url = cfg['url'].strip('/') + '/api/' + api_url
             result = requests.post(api_url, json=data, headers={
