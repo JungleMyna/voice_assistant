@@ -44,8 +44,8 @@ class SmartSpeaker():
         return self.interrupted
 
     def detected_callback(self):
-        self.robot.hass_api('events/voice_assistant', {'type': 'ding'})
         self.player.play_ding() # 触发 叮
+        self.robot.hass_api('events/voice_assistant', {'type': 'ding'})
 
     def speeched_callback(self, fname):
         self.player.play_dong() # 检测时间到后触发 咚
