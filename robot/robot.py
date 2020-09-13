@@ -35,4 +35,4 @@ class Robot():
             if speech == '':
                 self.speaker.speak("我没有听清楚，请再讲一遍")
                 return
-            self.hass_api('services/conversation/process', {'text': speech, 'source': 'baidu'})
+            self.hass_api('services/conversation/process', {'text': speech, 'source': 'xunfei'})
