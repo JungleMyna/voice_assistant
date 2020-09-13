@@ -1,4 +1,5 @@
 # -*- coding:UTF-8 -*-
+import shutil, os
 from aip import AipSpeech
 
 # 语音识别
@@ -13,7 +14,19 @@ class Recognition():
         with open(filePath, 'rb') as fp:
             return fp.read()
 
+    def xunfei_recognize(self, fname):
+        # 将文件移到识别目录
+        shutil.copyfile(fname, "../xunfei/bin/voice.wav")
+        rs = os.popen("../xunfei/bin/iat_sample")
+        text = rs.read()
+        print(text)
+        arr = text.split('=============================================================')
+        result = arr[1].strip('\n')        
+        return result
+
     def recognize(self, fname):
+        return self.xunfei_recognize(fname)
+        '''
         # 百度语音识别
         result = self.client.asr(self.get_file_content(fname), 'wav', 16000, {
             'dev_pid': 1537,
@@ -23,3 +36,4 @@ class Recognition():
             return result['result'][0]
         else:
             return None
+        '''
