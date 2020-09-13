@@ -44,12 +44,14 @@ class SmartSpeaker():
         return self.interrupted
 
     def detected_callback(self):
+        self.robot.hass_api('/api/events/voice_assistant', {'type': 'ding'})
         self.player.play_ding() # 触发 叮
 
     def speeched_callback(self, fname):
         self.player.play_dong() # 检测时间到后触发 咚
         self.robot.process(fname) # 将收到的语音传给应用模块执行相应的操作
         # sleep(1) # 等待片刻
+        self.robot.hass_api('/api/events/voice_assistant', {'type': 'dong'})
 
     # 启动机器人
     def run(self):

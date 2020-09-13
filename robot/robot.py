@@ -12,15 +12,15 @@ class Robot():
         self.nlu = Nlu(config) # 语义识别
         self.speaker = Speaker(config) # 语音合成
     
-    # 将文字发给HomeAssistant
-    def conversation_process(self, speech):
+    # HA接口
+    def hass_api(self, api_url, data):
         try:
             cfg = self.config
             api_url = cfg['url'].strip('/') + '/api/services/conversation/process'
-            result = requests.post(api_url, json={'text': speech, 'source': 'baidu'}, headers={
+            result = requests.post(api_url, json=data, headers={
                 "Content-Type": "application/json",
                 "Authorization": "Bearer " + cfg['token']
-            }, timeout=5)
+            }, timeout=6)
             print(result)
         except Exception as ex:
             print('请求超时：')
@@ -34,22 +34,4 @@ class Robot():
             if speech == '':
                 self.speaker.speak("我没有听清楚，请再讲一遍")
                 return
-            self.conversation_process(speech) # 发送到HA
-            '''
-            skill, response = self.nlu.query(speech) # 语义识别(情感倾向)
-            if skill == 'weather':
-                print("命中技能天气")
-                self.weather.process(response)
-            elif skill == 'chat':
-                print("命中技能闲聊")
-                self.chat.process(response)
-            elif skill == 'noun_interpretaion':
-                print("命中技能名词解释")
-                self.noun.process(response)
-            elif skill == 'ticket':
-                print("命中技能订购车票")
-                self.ticket.process(response)
-            elif skill == 'music':
-                print("命中技能播放音乐")
-                self.music.process(response)
-            '''
+            self.hass_api('services/conversation/process', {'text': speech, 'source': 'baidu'})
