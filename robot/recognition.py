@@ -16,10 +16,10 @@ class Recognition():
 
     def xunfei_recognize(self, fname):
         # 将文件移到识别目录
-        xunfei_path = os.path.abspath('./xunfei/bin') + '/'
+        xunfei_path = os.path.abspath('./') + '/'
         print(xunfei_path)
         shutil.copyfile(fname, xunfei_path + "voice.wav")
-        rs = os.popen(xunfei_path + "iat_sample")
+        rs = os.popen("./iat_sample")
         text = rs.read()
         print(text)
         arr = text.split('=============================================================')
