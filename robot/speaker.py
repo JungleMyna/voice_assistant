@@ -8,7 +8,7 @@ import time
 # 语音合成
 class Speaker():
     def __init__(self, config):
-        self.player = Player()
+        self.player = Player(config)
         self.API_KEY = config['api_key']
         self.SECRET_KEY = config['secret_key']
 
