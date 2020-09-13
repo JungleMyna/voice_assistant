@@ -3,8 +3,6 @@ import requests,json
 from recognition import Recognition
 from nlu import Nlu
 from speaker import Speaker
-from skills import Weather, Chat, Ticket, Noun, Music
-from music_player import Music_Player
 
 # 功能调度模块
 class Robot():
@@ -13,15 +11,6 @@ class Robot():
         self.recognizer = Recognition(config) # 语音识别
         self.nlu = Nlu(config) # 语义识别
         self.speaker = Speaker(config) # 语音合成
-        self.music_player = Music_Player() # 音乐播放器
-        self.weather = Weather(self.speaker) # 查询天气功能
-        self.chat = Chat(self.speaker) # 闲聊功能
-        self.ticket = Ticket(self.speaker) # 查询车票功能
-        self.noun = Noun(self.speaker) # 名词解释功能
-        self.music = Music(self.speaker, self.music_player) # 播放音乐功能
-
-    def get_music_player(self):
-        return self.music_player
     
     # 将文字发给HomeAssistant
     def conversation_process(self, speech):
