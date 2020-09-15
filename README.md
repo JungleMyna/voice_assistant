@@ -15,7 +15,6 @@ sudo apt-get install mpg123 pulseaudio -y
 # 使用python2.7安装依赖
 python -m pip install pyaudio
 python -m pip install mpg123
-python -m pip install baidu-aip
 python -m pip install pycrypto
 python -m pip install pyyaml
 ```

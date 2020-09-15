@@ -35,7 +35,7 @@ class SmartSpeaker():
         self.detector = snowboydecoder.HotwordDetector(self.model, sensitivity=0.5) # 设置语音模型与敏感度
         print('Listening... Press Ctrl+Z to exit')
         self.robot = Robot(config) # 创建应用模块
-        self.player = Player(config) # 触发响应词叮咚播放
+        self.player = Player() # 触发响应词叮咚播放
         
     def signal_handler(self, signal, frame):
         self.interrupted = True

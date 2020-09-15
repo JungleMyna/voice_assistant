@@ -6,8 +6,7 @@ import subprocess
 
 # 音频播放器
 class Player():
-    def __init__(self, config):
-        self.config = config
+    def __init__(self):
         pass
 
     def play_ding(self):
